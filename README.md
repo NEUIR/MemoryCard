@@ -1,5 +1,26 @@
 # MemoryCard: Video Memory Augmentation for Long-Video Question Answering
 
+Source code for our paper:
+**MemoryCard: Video Memory Augmentation for Long-Video Question Answering**
+
+Click the links below to view our paper and project resources:
+
+<a href='https://arxiv.org/abs/2606.05917'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> <a href='https://github.com/NEUIR/MemoryCard'><img src='https://img.shields.io/badge/Code-GitHub-green'></a>
+
+If you find this work useful, please cite our paper and give us a shining star 🌟
+
+```bibtex
+@misc{yang2026memorycardtopicawaremultimodalclue,
+      title={MemoryCard: Topic-Aware Multi-Modal Clue Compression for Long-Video Question Answering}, 
+      author={Qing Yang and Pengcheng Huang and Xinze Li and Zhenghao Liu and Yukun Yan and Yu Gu and Ge Yu and Gang Li and Maosong Sun},
+      year={2026},
+      eprint={2606.05917},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2606.05917}, 
+}
+```
+
 ## Overview
 
 ![](figs/framework.png)
