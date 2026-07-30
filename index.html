@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script>document.documentElement.classList.add('js');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MemoryCard is a training-free video-memory augmentation framework for long-video question answering." />
+  <meta name="theme-color" content="#2d7f96" />
+  <meta property="og:title" content="MemoryCard: Topic-Aware Multi-Modal Clue Compression" />
+  <meta property="og:description" content="From sparse frames to reusable event-level multimodal evidence for long-video question answering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://neuir.github.io/MemoryCard/" />
+  <meta property="og:site_name" content="MemoryCard" />
+  <meta property="og:image" content="https://neuir.github.io/MemoryCard/assets/figure2-framework.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MemoryCard: Topic-Aware Multi-Modal Clue Compression" />
+  <meta name="twitter:description" content="Event-level multimodal memory for long-video question answering." />
+  <meta name="twitter:image" content="https://neuir.github.io/MemoryCard/assets/figure2-framework.png" />
+  <title>MemoryCard · Long-Video Question Answering</title>
+  <link rel="canonical" href="https://neuir.github.io/MemoryCard/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css?v=20260730" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="MemoryCard home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><rect x="5" y="4" width="22" height="24" rx="5"/><path d="M10 11h12M10 16h9M10 21h11"/><circle cx="23" cy="22" r="3"/></svg>
+        </span>
+        <span>MemoryCard</span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#analysis">Analysis</a>
+        <a href="#examples">Examples</a>
+        <a href="#bibtex">BibTeX</a>
+        <a class="nav-github" href="https://github.com/NEUIR/MemoryCard" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="overview">
+      <div class="hero-orb hero-orb-a"></div>
+      <div class="hero-orb hero-orb-b"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-kicker-row" aria-label="Project attributes">
+            <span><i></i> Training-Free</span>
+            <span>Long-Video QA</span>
+            <span>Event-Level Memory</span>
+            <span>2026</span>
+          </div>
+
+          <p class="project-name">MemoryCard</p>
+
+          <h1 aria-label="MemoryCard: Topic-Aware Multi-Modal Clue Compression for Long-Video Question Answering">
+            <span class="hero-title-line">Topic-Aware Multi-Modal Clue Compression</span>
+            <span class="hero-title-line">for Long-Video Question Answering</span>
+          </h1>
+
+          <p class="hero-lead">
+            A reusable video-memory framework that transforms sparse, fragmented frames into semantically coherent multimodal evidence for frozen vision-language models.
+          </p>
+
+          <div class="hero-actions" aria-label="Project resources">
+            <a class="button button-light" href="assets/memorycard-paper.pdf" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>
+              Paper
+            </a>
+            <a class="button button-glass" href="https://arxiv.org/abs/2606.05917" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19 10 5m4 14 6-14M7 13h10"/></svg>
+              arXiv
+            </a>
+            <a class="button button-glass" href="https://github.com/NEUIR/MemoryCard" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.55 9.55 0 0 1 12 6.82a9.55 9.55 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.77c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              Code
+            </a>
+            <button class="button button-glass" type="button" data-scroll-target="#bibtex">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v16h4M16 4h4v16h-4M10 9h4M10 13h4M10 17h4"/></svg>
+              BibTeX
+            </button>
+          </div>
+
+          <div class="hero-insights" aria-label="Main findings">
+            <article>
+              <strong>21.8%</strong>
+              <span>maximum relative accuracy gain</span>
+            </article>
+            <article>
+              <strong>Build once</strong>
+              <span>question-agnostic reusable memory bank</span>
+            </article>
+            <article>
+              <strong>3 × 3</strong>
+              <span>benchmarks × frozen VLM backbones</span>
+            </article>
+          </div>
+
+          <p class="hero-footnote">Self-read semantic units · High-density card rendering · Question-aware retrieval · Temporal reordering</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-strip">
+      <div class="container authors reveal">
+        <div class="paper-status">arXiv:2606.05917</div>
+        <p class="author-list">
+          <span>Qing Yang<sup>1</sup></span>
+          <span>Pengcheng Huang<sup>1</sup></span>
+          <span>Xinze Li<sup>1</sup></span>
+          <span>Zhenghao Liu<sup>1*</sup></span>
+          <span>Yukun Yan<sup>2</sup></span>
+          <span>Yu Gu<sup>1</sup></span>
+          <span>Ge Yu<sup>1</sup></span>
+          <span>Gang Li<sup>3</sup></span>
+          <span>Maosong Sun<sup>2</sup></span>
+        </p>
+        <p class="affiliations"><sup>1</sup>Northeastern University · <sup>2</sup>Tsinghua University · <sup>3</sup>Digital China Group · <sup>*</sup>Corresponding author</p>
+      </div>
+    </section>
+
+    <section class="section abstract-section">
+      <div class="container narrow reveal">
+        <p class="section-kicker">Abstract</p>
+        <h2>From sparse frame clues to high-density multimodal memories.</h2>
+        <p class="abstract-text">
+          Answer-relevant evidence in long videos is often sparse, brief, and temporally dispersed. Existing efficiency methods still use isolated frames or frame-derived representations as the basic clue unit. MemoryCard instead self-reads a video and its aligned utterances, segments it into semantically coherent events, generates event-level video gists, selects representative visual moments, and renders them into unified cards for retrieval and question answering.
+        </p>
+        <div class="metric-row">
+          <article><strong>3</strong><span>Long-video QA benchmarks</span></article>
+          <article><strong>3</strong><span>Frozen answering backbones</span></article>
+          <article><strong>44</strong><span>Cards in the default mixed-resolution budget</span></article>
+          <article><strong>21.8%</strong><span>Maximum relative accuracy gain</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section" id="motivation">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Motivation</p>
+          <h2>Long-video QA has an evidence-unit problem.</h2>
+          <p>Retrieving the right timestamp is not enough when each retrieved clue is semantically sparse and disconnected from the event that gives it meaning.</p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span class="card-index">01</span>
+            <div class="card-icon">▥</div>
+            <h3>Frames are fragmented</h3>
+            <p>An isolated frame records an instantaneous visual state, but usually omits event boundaries, spoken content, and surrounding temporal context.</p>
+          </article>
+          <article class="problem-card reveal delay-1">
+            <span class="card-index">02</span>
+            <div class="card-icon">⌁</div>
+            <h3>Critical clues are transient</h3>
+            <p>Objects, actions, text, and speech may appear only momentarily, while most frames in a long video are redundant or irrelevant.</p>
+          </article>
+          <article class="problem-card reveal delay-2">
+            <span class="card-index">03</span>
+            <div class="card-icon">◎</div>
+            <h3>Reasoning needs event context</h3>
+            <p>VLMs benefit from compact evidence units that bind local details to a coherent topic, speech clue, and temporal span.</p>
+          </article>
+        </div>
+
+        <div class="comparison-panel reveal">
+          <div class="comparison-copy">
+            <span class="pill">Frame-centric → Event-centric</span>
+            <h3>MemoryCard changes what gets retrieved.</h3>
+            <p>Instead of selecting disconnected frames, the retriever selects self-contained event memories. Each card combines representative visual moments with a topic-level gist, aligned utterances, and temporal metadata.</p>
+            <ul class="check-list">
+              <li>Higher semantic density per visual input</li>
+              <li>Explicit speech and temporal grounding</li>
+              <li>Reusable across many questions from the same video</li>
+            </ul>
+          </div>
+          <button class="figure-button" type="button" data-lightbox="assets/figure1-motivation.png" aria-label="Open motivation figure">
+            <img src="assets/figure1-motivation.png" alt="Frame-centric retrieval compared with MemoryCard." loading="lazy" decoding="async" />
+            <span>Click to enlarge</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method">
+      <div class="container">
+        <div class="section-heading light reveal">
+          <p class="section-kicker">Method</p>
+          <h2>A reusable video-memory bank in three stages.</h2>
+          <p>The answering VLM remains frozen. Memory construction is question-agnostic; only retrieval and resolution allocation depend on the downstream question.</p>
+        </div>
+
+        <button class="pipeline-figure reveal" type="button" data-lightbox="assets/figure2-framework.png" aria-label="Open MemoryCard framework figure">
+          <img src="assets/figure2-framework.png" alt="Overview of the MemoryCard framework." loading="lazy" decoding="async" />
+          <span class="zoom-chip">Open full figure ↗</span>
+        </button>
+
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <span class="step-number">1</span>
+            <div>
+              <p class="step-label">Self-read</p>
+              <h3>Semantic unit construction</h3>
+              <p>A self-read VLM segments the full video into content-aware sessions according to event, topic, and scene transitions, then aligns timestamped utterances.</p>
+            </div>
+          </article>
+          <article class="step-card reveal delay-1">
+            <span class="step-number">2</span>
+            <div>
+              <p class="step-label">Render</p>
+              <h3>High-density Memory Cards</h3>
+              <p>For each session, the model produces a topic-level gist and representative visual moments. These are rendered with speech clues and the temporal span into a unified image.</p>
+            </div>
+          </article>
+          <article class="step-card reveal delay-2">
+            <span class="step-number">3</span>
+            <div>
+              <p class="step-label">Retrieve & answer</p>
+              <h3>Relevance-aware allocation</h3>
+              <p>LongCLIP retrieves relevant cards. The top cards receive higher resolution, all selected cards are restored to temporal order, and the frozen VLM predicts the answer.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="design-principles reveal">
+          <div><span>Question-agnostic construction</span><strong>Build once</strong></div>
+          <div><span>Question-aware retrieval</span><strong>Select per query</strong></div>
+          <div><span>Mixed-resolution allocation</span><strong>4 high · 8 mid · 32 low</strong></div>
+          <div><span>Temporal reordering</span><strong>Reason coherently</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Experiments</p>
+          <h2>Consistent improvements across backbones and benchmarks.</h2>
+          <p>Select an answering backbone to compare the frozen base model with its MemoryCard-augmented variant. All values are accuracy (%).</p>
+        </div>
+
+        <div class="results-shell reveal">
+          <div class="backbone-tabs" role="tablist" aria-label="Answering backbone">
+            <button class="tab active" id="backbone-qwen2" type="button" role="tab" aria-selected="true" aria-controls="benchmark-grid" tabindex="0" data-backbone="qwen2">Qwen2-VL-7B</button>
+            <button class="tab" id="backbone-qwen3" type="button" role="tab" aria-selected="false" aria-controls="benchmark-grid" tabindex="-1" data-backbone="qwen3">Qwen3-VL-8B</button>
+            <button class="tab" id="backbone-minicpm" type="button" role="tab" aria-selected="false" aria-controls="benchmark-grid" tabindex="-1" data-backbone="minicpm">MiniCPM-V-4.5</button>
+          </div>
+
+          <div class="benchmark-grid" id="benchmark-grid" role="tabpanel" aria-labelledby="backbone-qwen2" aria-live="polite"></div>
+
+          <div class="results-note">
+            <span class="legend base"></span> Base model
+            <span class="legend memory"></span> + MemoryCard
+            <span class="note-copy">Same answering model, prompt format, decoding setup, answer extraction, and evaluation protocol.</span>
+          </div>
+        </div>
+
+        <div class="table-wrap reveal" tabindex="0" aria-label="Overall performance table">
+          <table>
+            <thead>
+              <tr>
+                <th>Backbone</th>
+                <th>Variant</th>
+                <th>Video-MME</th>
+                <th>MLVU</th>
+                <th>LongVideoBench</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Qwen2-VL-7B</td><td>Base</td><td>53.7</td><td>56.9</td><td>53.5</td></tr>
+              <tr class="highlight"><td>Qwen2-VL-7B</td><td>+ MemoryCard</td><td>60.5 <em>+6.8</em></td><td>65.7 <em>+8.8</em></td><td>58.4 <em>+4.9</em></td></tr>
+              <tr><td>Qwen3-VL-8B</td><td>Base</td><td>57.4</td><td>57.2</td><td>56.3</td></tr>
+              <tr class="highlight"><td>Qwen3-VL-8B</td><td>+ MemoryCard</td><td>64.7 <em>+7.3</em></td><td>66.5 <em>+9.3</em></td><td>60.1 <em>+3.8</em></td></tr>
+              <tr><td>MiniCPM-V-4.5</td><td>Base</td><td>59.9</td><td>57.0</td><td>55.6</td></tr>
+              <tr class="highlight"><td>MiniCPM-V-4.5</td><td>+ MemoryCard</td><td>67.2 <em>+7.3</em></td><td>69.4 <em>+12.4</em></td><td>62.0 <em>+6.4</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section analysis-section" id="analysis">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Analysis</p>
+          <h2>Why the representation works.</h2>
+          <p>Ablations show that gains come from more than retrieval: semantic session construction, multimodal rendering, resolution allocation, and temporal organization all matter.</p>
+        </div>
+
+        <div class="finding-grid">
+          <article class="finding reveal">
+            <span class="finding-number">01</span>
+            <h3>Rendering adds value beyond raw-frame retrieval</h3>
+            <p>With Qwen3-VL, raw-frame retrieval reaches 60.8 on Video-MME, while the full MemoryCard representation reaches 64.7.</p>
+          </article>
+          <article class="finding reveal delay-1">
+            <span class="finding-number">02</span>
+            <h3>Semantic sessions outperform mechanical segmentation</h3>
+            <p>Content-aware sessions better preserve coherent events than uniform-frame, fixed-length, or shot-based units.</p>
+          </article>
+          <article class="finding reveal delay-2">
+            <span class="finding-number">03</span>
+            <h3>Temporal order helps the answering VLM</h3>
+            <p>After relevance retrieval, restoring the original chronology produces a more coherent reasoning sequence than relevance order or random order.</p>
+          </article>
+          <article class="finding reveal delay-3">
+            <span class="finding-number">04</span>
+            <h3>Mixed resolution balances detail and coverage</h3>
+            <p>High-resolution cards preserve fine details, while low-resolution cards expand event coverage under a comparable visual-token budget.</p>
+          </article>
+        </div>
+
+        <div class="category-analysis reveal">
+          <figure class="category-figure">
+            <button type="button" data-lightbox="assets/figure3-category-wise.png" aria-label="Open the category-wise Video-MME accuracy figure">
+              <img src="assets/figure3-category-wise.png" alt="Radar chart comparing Qwen3-VL-Video, Qwen3-VL, and MemoryCard across six Video-MME task categories." loading="lazy" decoding="async" />
+              <span class="zoom-chip category-zoom">Open full figure ↗</span>
+            </button>
+            <figcaption><strong>Category-wise accuracies on Video-MME.</strong> MemoryCard is compared with Qwen3-VL-Video and Qwen3-VL across reasoning, recognition, perception, counting, OCR, and information synopsis.</figcaption>
+          </figure>
+
+          <div class="category-copy">
+            <p class="section-kicker">Fine-Grained Task Analysis</p>
+            <h3>MemoryCard improves all six task categories.</h3>
+            <p>The gains are not confined to a single capability. Event-level multimodal evidence improves fine-grained perception and recognition while also strengthening OCR, information synopsis, counting, and reasoning.</p>
+
+            <div class="category-stats" aria-label="Category-wise highlights">
+              <article>
+                <strong>+13.5</strong>
+                <span>Perception points over Qwen3-VL-Video</span>
+              </article>
+              <article>
+                <strong>6 / 6</strong>
+                <span>Video-MME categories improved</span>
+              </article>
+              <article>
+                <strong>78.0</strong>
+                <span>Information synopsis accuracy</span>
+              </article>
+            </div>
+
+            <p class="category-note"><span>Key takeaway</span> Memory Cards preserve local visual details while supplying the broader event context needed to interpret them. Counting and reasoning remain comparatively challenging, indicating room for denser temporal coverage and stronger cross-card aggregation.</p>
+          </div>
+        </div>
+
+        <div class="analysis-subheading reveal">
+          <span>More evidence-use analysis</span>
+          <p>Resolution allocation, temporal ordering, and top-k selection determine how the constructed Memory Cards are consumed under a constrained visual budget.</p>
+        </div>
+
+        <div class="analysis-figures">
+          <figure class="analysis-card reveal">
+            <button type="button" data-lightbox="assets/figure4-resolution.png" aria-label="Open the resolution allocation figure"><img src="assets/figure4-resolution.png" alt="Resolution allocation under comparable visual budgets." loading="lazy" decoding="async" /></button>
+            <figcaption><strong>Resolution allocation.</strong> The default 4-high, 8-medium, 32-low setting achieves 64.7 on Video-MME with a visual budget only 3.3% above the eight-high-resolution reference.</figcaption>
+          </figure>
+          <figure class="analysis-card reveal delay-1">
+            <button type="button" data-lightbox="assets/figure5-selection.png" aria-label="Open the card ordering and selection figure"><img src="assets/figure5-selection.png" alt="Card ordering and top-k sensitivity analysis." loading="lazy" decoding="async" /></button>
+            <figcaption><strong>Ordering and selection.</strong> Temporal ordering is strongest, while retrieval-based selection remains robust across different top-k values.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section examples-section" id="examples">
+      <div class="container">
+        <div class="section-heading light reveal">
+          <p class="section-kicker">Case Study</p>
+          <h2>See how MemoryCard organizes long video evidence.</h2>
+          <p>Switch between the question-agnostic self-read construction view and the question-conditioned retrieval view.</p>
+        </div>
+
+        <div class="example-shell reveal">
+          <div class="example-tabs" role="tablist" aria-label="Visualization example">
+            <button class="example-tab active" id="example-retrieval" type="button" role="tab" aria-selected="true" aria-controls="example-stage" tabindex="0" data-example="retrieval">Question-aware retrieval</button>
+            <button class="example-tab" id="example-selfread" type="button" role="tab" aria-selected="false" aria-controls="example-stage" tabindex="-1" data-example="selfread">Session-aware self-read</button>
+          </div>
+          <div class="example-stage" id="example-stage" role="tabpanel" aria-labelledby="example-retrieval">
+            <button type="button" class="example-image-button" data-lightbox="assets/figure7-retrieval.png" aria-label="Open the question-aware retrieval figure">
+              <img id="example-image" src="assets/figure7-retrieval.png" alt="Question-conditioned MemoryCard retrieval visualization." loading="lazy" decoding="async" />
+            </button>
+            <div class="example-copy" id="example-copy">
+              <span class="pill">Retrieve → allocate → reorder</span>
+              <h3>Question-conditioned visual evidence</h3>
+              <p>The retriever ranks cards from the reusable memory bank, then organizes them into 4 high-resolution, 8 medium-resolution, and 32 low-resolution inputs. Answer-critical details receive more pixels without sacrificing broad temporal coverage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="bibtex">
+      <div class="container citation-grid">
+        <div class="citation-copy reveal">
+          <p class="section-kicker">Resources & Citation</p>
+          <h2>Reproduce, extend, and cite MemoryCard.</h2>
+          <p>The project page is fully static and the paper code is publicly available. Update the citation entry if a proceedings version becomes available.</p>
+          <div class="resource-links">
+            <a href="https://github.com/NEUIR/MemoryCard" target="_blank" rel="noreferrer">Code repository ↗</a>
+            <a href="https://arxiv.org/abs/2606.05917" target="_blank" rel="noreferrer">arXiv abstract ↗</a>
+            <a href="assets/memorycard-paper.pdf" target="_blank" rel="noreferrer">Local PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="bibtex-card reveal delay-1">
+          <div class="code-header"><span>BibTeX</span><button id="copy-bibtex" type="button">Copy</button></div>
+          <pre><code id="bibtex-code">@article{yang2026memorycard,
+  title   = {MemoryCard: Topic-Aware Multi-Modal Clue
+             Compression for Long-Video Question Answering},
+  author  = {Yang, Qing and Huang, Pengcheng and Li, Xinze
+             and Liu, Zhenghao and Yan, Yukun and Gu, Yu
+             and Yu, Ge and Li, Gang and Sun, Maosong},
+  journal = {arXiv preprint arXiv:2606.05917},
+  year    = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><strong>MemoryCard</strong><span>Event-level multimodal memory for long-video QA.</span></div>
+      <div class="footer-links"><a href="#top">Back to top ↑</a><a href="https://github.com/NEUIR/MemoryCard" target="_blank" rel="noreferrer">GitHub</a></div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Expanded paper figure">
+    <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+    <img src="" alt="Expanded paper figure" />
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">BibTeX copied</div>
+  <script src="js/main.js?v=20260730-3"></script>
+</body>
+</html>
